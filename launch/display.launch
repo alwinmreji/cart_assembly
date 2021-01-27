@@ -1,4 +1,4 @@
-<launch>
+<!-- <launch>
   <arg
     name="model" />
   <arg
@@ -23,4 +23,21 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find cart_assembly)/urdf.rviz" />
+</launch> -->
+
+<launch>
+    <include
+        file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <rosparam file="$(find cart_assembly)/config/joint_names_cart_assembly.yaml" command="load"/>
+  
+  <param name="robot_description"
+      textfile="$(find cart_assembly)/urdf/cart_assembly.urdf"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+      args="-param robot_description -urdf -model cart_assembly" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/cart_assembly" args="
+        joint_state_controller
+        wheel_1_position_controller
+        "/>
 </launch>

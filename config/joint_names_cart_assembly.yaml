@@ -1,1 +1,21 @@
-controller_joint_names: ['wheel_1_rot', 'wheel_2_rot', 'wheel_3_rot', ]
+# controller_joint_names: ['wheel_1_rot', 'wheel_2_rot', 'wheel_3_rot', ]
+cart_assembly:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  wheel_1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wheel_1_rot
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wheel_2_rot
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wheel_3_rot
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  gazebo_ros_control/pid_gains:
+    wheel_1_rot: {p: 1.0, i: 0.0, d: 1.0}
+    wheel_2_rot: {p: 1.0, i: 0.0, d: 1.0}
+    wheel_3_rot: {p: 1.0, i: 0.0, d: 1.0}
