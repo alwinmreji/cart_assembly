@@ -1,0 +1,211 @@
+<robot
+  name="cart_assembly">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0 0.0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="11.6417381644856" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_1">
+    <inertial>
+      <origin
+        xyz="-0.00012743 0.00078371 -0.012232"
+        rpy="0 0 0" />
+      <mass
+        value="0.39461" />
+      <inertia
+        ixx="0.00015693"
+        ixy="2.3967E-06"
+        ixz="-1.4865E-07"
+        iyy="0.00014378"
+        iyz="5.0664E-06"
+        izz="0.00015124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_1_rot"
+    type="revolute">
+    <origin
+      xyz="-0.094641 -0.054641 -0.073"
+      rpy="1.5708 1.1826 2.0944" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wheel_2">
+    <inertial>
+      <origin
+        xyz="-0.00012743 0.00078372 -0.027514"
+        rpy="0 0 0" />
+      <mass
+        value="0.39461" />
+      <inertia
+        ixx="0.00015693"
+        ixy="2.3967E-06"
+        ixz="-1.4867E-07"
+        iyy="0.00014378"
+        iyz="5.0664E-06"
+        izz="0.00015124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_2_rot"
+    type="revolute">
+    <origin
+      xyz="0 0.094 -0.073"
+      rpy="1.5708 0.95051 -8.5716E-17" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wheel_3">
+    <inertial>
+      <origin
+        xyz="-0.00012743 0.00078371 -0.092518"
+        rpy="0 0 0" />
+      <mass
+        value="0.39461" />
+      <inertia
+        ixx="0.00015693"
+        ixy="2.3967E-06"
+        ixz="-1.4867E-07"
+        iyy="0.00014378"
+        iyz="5.0664E-06"
+        izz="0.00015124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://cart_assembly/meshes/wheel_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_3_rot"
+    type="revolute">
+    <origin
+      xyz="0.025111 -0.014498 -0.073"
+      rpy="-1.5708 0.70754 1.0472" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
