@@ -4,18 +4,21 @@ cart_assembly:
     type: joint_state_controller/JointStateController
     publish_rate: 50
   wheel_1_position_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointVelocityController
     joint: wheel_1_rot
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid: {p: 1,i: 0,d: 0,i_clamp_min: -10,i_clamp_max: 10}
   wheel_2_position_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointVelocityController
     joint: wheel_2_rot
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid: {p: 1,i: 0,d: 0,i_clamp_min: -10,i_clamp_max: 10}
   wheel_3_position_controller:
-    type: position_controllers/JointPositionController
+    type: effort_controllers/JointVelocityController
     joint: wheel_3_rot
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  gazebo_ros_control/pid_gains:
-    wheel_1_rot: {p: 1.0, i: 0.0, d: 1.0}
-    wheel_2_rot: {p: 1.0, i: 0.0, d: 1.0}
-    wheel_3_rot: {p: 1.0, i: 0.0, d: 1.0}
+    # pid: {p: 1,i: 0,d: 0,i_clamp_min: -10,i_clamp_max: 10}
+    # type: position_controllers/JointPositionController
+    # joint: wheel_3_rot
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  # gazebo_ros_control/pid_gains:
+  #   wheel_1_rot: {p: 1.0, i: 0.0, d: 1.0}
+  #   wheel_2_rot: {p: 1.0, i: 0.0, d: 1.0}
+  #   wheel_3_rot: {p: 1.0, i: 0.0, d: 1.0}

@@ -82,7 +82,7 @@
   </link>
   <joint
     name="wheel_1_rot"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="-0.094641 -0.054641 -0.073"
       rpy="1.5708 1.1826 2.0944" />
@@ -138,7 +138,7 @@
   </link>
   <joint
     name="wheel_2_rot"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0 0.094 -0.073"
       rpy="1.5708 0.95051 -8.5716E-17" />
@@ -194,7 +194,7 @@
   </link>
   <joint
     name="wheel_3_rot"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0.025111 -0.014498 -0.073"
       rpy="-1.5708 0.70754 1.0472" />
@@ -211,10 +211,10 @@
   <transmission name="tran1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wheel_1_rot">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -222,10 +222,10 @@
   <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wheel_2_rot">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_2">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -233,10 +233,10 @@
   <transmission name="tran3">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wheel_3_rot">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor_3">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -244,6 +244,7 @@
   <gazebo>
   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
     <robotNamespace>/cart_assembly</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
   </plugin>
 </gazebo>
 </robot>
