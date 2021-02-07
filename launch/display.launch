@@ -1,47 +1,22 @@
-<!-- <launch>
-  <arg
-    name="model" />
-  <arg
-    name="gui"
-    default="False" />
-  <param
-    name="robot_description"
-    textfile="$(find cart_assembly)/robots/cart_assembly.urdf" />
-  <param
-    name="use_gui"
-    value="$(arg gui)" />
-  <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher" />
-  <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="state_publisher" />
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find cart_assembly)/urdf.rviz" />
-</launch> -->
-
 <launch>
     <include
         file="$(find gazebo_ros)/launch/empty_world.launch" />
-  <rosparam file="$(find cart_assembly)/config/joint_names_cart_assembly.yaml" command="load"/>
+  <!-- <rosparam file="$(find cart_assembly)/config/joint_names_cart_assembly.yaml" command="load"/> -->
   
   <param name="robot_description"
       textfile="$(find cart_assembly)/urdf/cart_assembly.urdf"/>
 
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
       args="-param robot_description -urdf -model cart_assembly" />
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-      output="screen" ns="/cart_assembly" args="
-        joint_state_controller
-        wheel_1_position_controller
-        wheel_2_position_controller
-        wheel_3_position_controller
-        "/>
+
+  <rosparam file="$(find omni_bot)/config/omni_bot.yaml" command="load"/>
+  <node name="control_spawn" pkg="controller_manager" type="spawner" respawn="false" ns="omni_bot"
+    output="screen" args="
+      joint_state_controller 
+      left_wheel_controller 
+      right_wheel_controller 
+      front_wheel_controller"/>
+
   <node name="robot_state_publisher" ns="cart_assembly" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
     <remap from="/joint_states" to="/cart_assembly/joint_states"/>
     </node>
