@@ -44,9 +44,9 @@
     </collision>
   </link>
 
-  <xacro:rim name="left" parent="base_link" xyz="-0.094641 -0.054641 -0.073" rpy="1.5708 1.1826 2.0944" GAZEBO_color = "Gazebo/Black"/>
-  <xacro:rim name="right" parent="base_link" xyz="0 0.109 -0.073" rpy="1.5708 0.95051 -8.5716E-17" GAZEBO_color = "Gazebo/Black"/>
-  <xacro:rim name="front" parent="base_link" xyz="0.095111 -0.054498 -0.073" rpy="-1.5708 0.70754 1.0472" GAZEBO_color = "Gazebo/Black"/>
+  <xacro:rim name="left" parent="base_link" xyz="-0.094641 -0.054641 -0.093" rpy="1.5708 1.1826 2.0944" GAZEBO_color = "Gazebo/Black"/>
+  <xacro:rim name="right" parent="base_link" xyz="0 0.109 -0.093" rpy="1.5708 0.95051 -8.5716E-17" GAZEBO_color = "Gazebo/Black"/>
+  <xacro:rim name="front" parent="base_link" xyz="0.095111 -0.054498 -0.093" rpy="-1.5708 0.70754 1.0472" GAZEBO_color = "Gazebo/Black"/>
 
  <!-- Laser -->
  <!-- <link name = "laser">
